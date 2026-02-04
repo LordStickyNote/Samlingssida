@@ -1,0 +1,56 @@
+:root {
+  --bg-clr: #131215;
+  --card-clr: #242426;
+  --primary-btn: #4b9969;
+}
+
+h1 {
+  color: white;
+  font-family: "Figtree", sans-serif;
+}
+
+p {
+  font-family: "Figtree", sans-serif;
+}
+
+body {
+  background-color: var(--bg-clr);
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: var(--card-clr);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0 0 0 30px;
+}
+
+.btn {
+  background-color: var(--primary-btn);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 24px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50px;
+  border: 0.8px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn svg {
+  height: 16px;
+  fill: white;
+}
