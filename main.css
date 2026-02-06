@@ -4,12 +4,29 @@
   --primary-btn: #4b9969;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1 {
+  color: white;
+  font-family: "Figtree", sans-serif;
+}
+h2 {
+  color: white;
+  font-family: "Figtree", sans-serif;
+}
+h3 {
   color: white;
   font-family: "Figtree", sans-serif;
 }
 
 p {
+  color: white;
+  font-family: "Figtree", sans-serif;
+}
+a {
+  color: white;
   font-family: "Figtree", sans-serif;
 }
 
@@ -52,5 +69,40 @@ header h1 {
 
 .btn svg {
   height: 16px;
+  width: 16px;
   fill: white;
+}
+
+/*index.html*/
+#main-container {
+  display: grid;
+  width: 100%;
+  max-width: 2000px;
+  justify-content: center;
+  justify-self: center;
+  height: fit-content;
+  grid-template-rows: 30% auto;
+  padding: 30px;
+  gap: 30px;
+}
+
+#main-container div {
+  border-radius: 16px;
+}
+
+#info-container {
+  background-color: var(--card-clr);
+    padding: 30px 30px;
+}
+
+#card-grid-container {
+  display: flex;
+  gap: 26px;
+}
+
+#card-grid-container div {
+  background-color: var(--card-clr);
+  height: 300px;
+  width: 300px;
+  padding: 30px 30px;
 }
