@@ -3,32 +3,38 @@ let assignments = [
     id: "assignment1",
     title: "Uppgift 1",
     link: "/assignments/assignment1/index.html",
-    description: "Uppgiften gick ut på att skapa ett separat GitHub-repository för kursens inlämningsuppgifter och publicera det via GitHub Pages med en dynamiskt genererad landningssida. Fokus låg på korrekt versionshantering, relativa sökvägar samt användning av HTML, CSS och JavaScript för navigation och struktur.",
+    description:
+      "Uppgiften gick ut på att skapa ett separat GitHub-repository för kursens inlämningsuppgifter och publicera det via GitHub Pages med en dynamiskt genererad landningssida. Fokus låg på korrekt versionshantering, relativa sökvägar samt användning av HTML, CSS och JavaScript för navigation och struktur.",
   },
   {
     id: "assignment2",
     title: "Uppgift 2",
     link: "/assignments/assignment2/index.html",
-    description: "Uppgiften gick ut på att bygga en dynamisk produktsida där produkter renderas med JavaScript från en egen datastruktur och kan läggas i en kundvagn. Kundvagnen skulle hantera antal, totalsumma och sparas i localStorage så att innehållet finns kvar även efter omladdning av sidan.",
+    description:
+      "Uppgiften gick ut på att bygga en dynamisk produktsida där produkter renderas med JavaScript från en egen datastruktur och kan läggas i en kundvagn. Kundvagnen skulle hantera antal, totalsumma och sparas i localStorage så att innehållet finns kvar även efter omladdning av sidan.",
   },
 ];
 
-export function assignmentPage(element, container){
+export function assignmentPage(element, container) {
   let titleElement = document.createElement("h3");
-    titleElement.textContent = assignments[element].title;
-    let descElement = document.createElement("p");
-    descElement.textContent = assignments[element].description;
-    container.appendChild(titleElement);  
-    container.appendChild(descElement);
+  titleElement.textContent = assignments[element].title;
+  let descElement = document.createElement("p");
+  descElement.textContent = assignments[element].description;
+  container.appendChild(titleElement);
+  container.appendChild(descElement);
 }
 
-
-export function navTabs(container) {
+export function navTabs(container, element) {
+  let counter = 0;
   for (const assignment of assignments) {
     let linkElement = document.createElement("a");
     linkElement.href = assignment.link;
     linkElement.innerHTML = assignment.title;
     let listItem = document.createElement("li");
+    if (element == counter) {
+      linkElement.classList.add("current-tab");
+    }
+    counter++;
     container.appendChild(listItem);
     listItem.appendChild(linkElement);
   }
@@ -59,8 +65,7 @@ export function assignmentsOutput(container) {
     card.appendChild(descElement);
     card.appendChild(linkElement);
 
-        card.classList.add("card")
-
+    card.classList.add("card");
 
     container.appendChild(card);
   }
