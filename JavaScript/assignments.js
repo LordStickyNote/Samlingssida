@@ -2,14 +2,14 @@ let assignments = [
   {
     id: "assignment1",
     title: "Uppgift 1",
-    link: "assignments/assignment1/index.html",
+    link: "/assignments/assignment1/index.html",
     description:
       "Uppgiften gick ut på att skapa ett separat GitHub-repository för kursens inlämningsuppgifter och publicera det via GitHub Pages med en dynamiskt genererad landningssida. Fokus låg på korrekt versionshantering, relativa sökvägar samt användning av HTML, CSS och JavaScript för navigation och struktur.",
   },
   {
     id: "assignment2",
     title: "Uppgift 2",
-    link: "assignments/assignment2/index.html",
+    link: "/assignments/assignment2/index.html",
     description:
       "Uppgiften gick ut på att bygga en dynamisk produktsida där produkter renderas med JavaScript från en egen datastruktur och kan läggas i en kundvagn. Kundvagnen skulle hantera antal, totalsumma och sparas i localStorage så att innehållet finns kvar även efter omladdning av sidan.",
   },
