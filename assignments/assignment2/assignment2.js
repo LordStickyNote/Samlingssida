@@ -34,6 +34,46 @@ function inventoryFunction() {
       Image: 3,
       category: "Ljud",
     },
+    {
+      id: "4",
+      name: "Kontroll",
+      description: "Ett par hörlurar från ett företag",
+      price: "200",
+      Image: 4,
+      category: "Kontroll",
+    },
+    {
+      id: "5",
+      name: "Tangentbord",
+      description: "Ett par hörlurar från ett företag",
+      price: "200",
+      Image: 5,
+      category: "Tangentbord",
+    },
+    {
+      id: "5",
+      name: "Tangentbord",
+      description: "Ett par hörlurar från ett företag",
+      price: "200",
+      Image: 5,
+      category: "Tangentbord",
+    },
+    {
+      id: "5",
+      name: "Tangentbord",
+      description: "Ett par hörlurar från ett företag",
+      price: "200",
+      Image: 5,
+      category: "Tangentbord",
+    },
+    {
+      id: "5",
+      name: "Tangentbord",
+      description: "Ett par hörlurar från ett företag",
+      price: "200",
+      Image: 5,
+      category: "Tangentbord",
+    },
   ];
   return inventory;
 }
