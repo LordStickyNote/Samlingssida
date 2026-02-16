@@ -21,6 +21,10 @@ h3 {
   color: white;
   font-family: "Figtree", sans-serif;
 }
+h4 {
+  color: white;
+  font-family: "Figtree", sans-serif;
+}
 
 p {
   color: white;
@@ -92,17 +96,6 @@ header h1 {
   gap: 20px;
 }
 
-#main-container-assignment2 {
-  display: flex;
-  flex-flow: row;
-  width: 100%;
-  height: fit-content;
-  justify-content: center;
-  margin-top: 100px;
-  gap: 160px;
-  flex-wrap: wrap;
-}
-
 #main-container div {
   border-radius: 16px;
 }
@@ -118,8 +111,7 @@ header h1 {
   display: flex;
   gap: 26px;
   flex-wrap: wrap;
-    justify-content: center;
-
+  justify-content: center;
 }
 
 nav {
@@ -147,8 +139,13 @@ nav a:hover {
   transition: 0.3s;
 }
 
-.current-tab {
+.current-tab{
   background-color: rgb(0, 95, 32);
+}
+
+#card-grid-container div {
+  background-color: var(--card-clr);
+  height: fit-content;
 }
 
 .card {
@@ -156,72 +153,16 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   background-color: var(--card-clr);
-  height: fit-content;
-  width: fit-content;
-  padding: 30px 30px;
-  border-radius: 16px;
-}
-
-.card h2 {
-  margin-bottom: 0;
-}
-.card a {
-  margin-top: 10px;
-  width: 100%;
-}
-
-.card img {
   width: 300px;
-  border-radius: 16px;
-}
-
-.prodCategory {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #374151;
-  font-size: 13px;
-  font-weight: 600;
-  width: fit-content;
-  margin-bottom: 12px;
-}
-
-.namePriceContainer {
-  display: flex;
-  flex-flow: row;
-  padding: 0;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#shopping-cart {
-  gap: 4px;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--card-clr);
-  height: fit-content;
-  min-width: 500px;
-  width: fit-content;
   padding: 30px 30px;
   border-radius: 16px;
-}
-
-#shopping-cart h2 {
-  margin: 0;
-  padding: 0;
-}
-#shopping-cart div {
-  margin: 0;
-  padding: 0;
-}
-
-hr {
-  width: 100%;
-}
-
-.shopping-cart-item {
-  display: flex;
-  height: 40px;
   justify-content: space-between;
-  align-items: center;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: var(--card-clr);
+  padding: 30px;
+  margin-top: 50px;
 }

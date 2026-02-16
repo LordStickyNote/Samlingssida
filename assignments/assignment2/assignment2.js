@@ -2,26 +2,40 @@ import { navTabs } from "../../JavaScript/assignments.js";
 navTabs(document.querySelector("nav"), 1);
 
 let totalCounter = 0;
-itemRender();
-shoppingCartTotal();
+let counter = localStorage.getItem("totalCounterLocalStorage");
+if (counter) {
+  totalCounter = Number(counter.replace("Total: ", "").replace(" kr", "")) || 0;
+}
 
 let resetCartBtn = document.getElementById("reset-cart");
 resetCartBtn.addEventListener("click", resetCart);
+
+let shoppingCartContent = document.getElementById("shopping-cart-content");
+
+let cart = localStorage.getItem("cart");
+if (cart) {
+  shoppingCartContent.innerHTML = cart;
+} else {
+  shoppingCartContent.innerHTML = "";
+}
+
+itemRender();
+shoppingCartTotal();
 
 function inventoryFunction() {
   let inventory = [
     {
       id: "1",
       name: "Telefon",
-      description: "En telefon från ett företag",
-      price: "30",
+      description: "En enkel och pålitlig telefon för vardagligt bruk.",
+      price: "9000",
       Image: 1,
       category: "telefon",
     },
     {
       id: "2",
       name: "Laptop",
-      description: "En Laptop från ett företag",
+      description: "En bärbar dator som passar arbete, skola och surf.",
       price: "6000",
       Image: 2,
       category: "Dator",
@@ -29,7 +43,7 @@ function inventoryFunction() {
     {
       id: "3",
       name: "Hörlurar",
-      description: "Ett par hörlurar från ett företag",
+      description: "Bekväma hörlurar med bra ljud för musik och spel.",
       price: "200",
       Image: 3,
       category: "Ljud",
@@ -37,7 +51,7 @@ function inventoryFunction() {
     {
       id: "4",
       name: "Kontroll",
-      description: "Ett par hörlurar från ett företag",
+      description: "En handkontroll som passar perfekt för gaming.",
       price: "200",
       Image: 4,
       category: "Kontroll",
@@ -45,34 +59,34 @@ function inventoryFunction() {
     {
       id: "5",
       name: "Tangentbord",
-      description: "Ett par hörlurar från ett företag",
+      description: "Ett stabilt tangentbord för både spel och arbete.",
       price: "200",
       Image: 5,
       category: "Tangentbord",
     },
     {
-      id: "5",
-      name: "Tangentbord",
-      description: "Ett par hörlurar från ett företag",
-      price: "200",
-      Image: 5,
-      category: "Tangentbord",
+      id: "6",
+      name: "Gamingmus",
+      description: "En snabb mus med bra precision.",
+      price: "150",
+      Image: 6,
+      category: "Mus",
     },
     {
-      id: "5",
-      name: "Tangentbord",
-      description: "Ett par hörlurar från ett företag",
-      price: "200",
-      Image: 5,
-      category: "Tangentbord",
+      id: "7",
+      name: "Skärm",
+      description: "En tydlig skärm som passar gaming och film.",
+      price: "1200",
+      Image: 7,
+      category: "Skärm",
     },
     {
-      id: "5",
-      name: "Tangentbord",
-      description: "Ett par hörlurar från ett företag",
-      price: "200",
-      Image: 5,
-      category: "Tangentbord",
+      id: "8",
+      name: "Mikrofon",
+      description: "En mikrofon med klart ljud för snack och streaming.",
+      price: "300",
+      Image: 8,
+      category: "Ljud",
     },
   ];
   return inventory;
@@ -90,7 +104,7 @@ function itemRender() {
     let prodPrice = document.createElement("h2");
     prodPrice.textContent = invArray[i].price + " kr";
     let prodImg = document.createElement("img");
-    prodImg.src = "/images/" + invArray[i].Image + ".jpg";
+    prodImg.src = "../../images/" + invArray[i].Image + ".jpg";
     let prodCategory = document.createElement("p");
     prodCategory.classList.add("prodCategory");
     prodCategory.textContent = invArray[i].category;
@@ -127,6 +141,7 @@ function shoppingCartTotal() {
 function updateShoppingCart() {
   let counterUpdate = document.getElementById("totalCounter");
   counterUpdate.textContent = "Total: " + totalCounter + " kr";
+  localStorage.setItem("totalCounterLocalStorage", counterUpdate.textContent);
 }
 
 function resetCart() {
@@ -134,13 +149,44 @@ function resetCart() {
   while (item.length > 0) {
     item[0].remove();
   }
+  localStorage.removeItem("cart");
+  localStorage.removeItem("totalCounterLocalStorage");
   totalCounter = 0;
   updateShoppingCart();
 }
 
 function addToCart(name, price) {
+  let itemShoppingcart = document.getElementsByClassName("shopping-cart-item");
+
+  for (const element of itemShoppingcart) {
+    let h3Elements = element.getElementsByTagName("h3");
+    let itemName = h3Elements[0].textContent;
+    let itemPrice = h3Elements[1].textContent;
+    if (name == itemName) {
+      let multiplier = element.querySelector("h4");
+
+      let priceElement = h3Elements[1];
+      let count;
+
+      if (!multiplier) {
+        multiplier = document.createElement("h4");
+        count = 2;
+        element.appendChild(multiplier);
+      } else {
+        let current = Number(multiplier.textContent.replace("x", ""));
+        count = current + 1;
+      }
+
+      multiplier.textContent = count + "x";
+      priceElement.textContent = Number(price) * count + " kr";
+      totalCounter += Number(price);
+      updateShoppingCart();
+      localStorage.setItem("cart", shoppingCartContent.innerHTML);
+      return;
+    }
+  }
+
   let item = document.createElement("div");
-  let shoppingCartContent = document.getElementById("shopping-cart-content");
   shoppingCartContent.appendChild(item);
   item.classList.add("shopping-cart-item");
   let nameElement = document.createElement("h3");
@@ -153,4 +199,5 @@ function addToCart(name, price) {
   let priceNmbr = Number(price);
   totalCounter = totalCounter + Number(price);
   updateShoppingCart();
+  localStorage.setItem("cart", shoppingCartContent.innerHTML);
 }
