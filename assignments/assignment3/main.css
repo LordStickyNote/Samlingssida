@@ -1,0 +1,90 @@
+main {
+  height: 100vh;
+  width: fit-content;
+  display: flex;
+  justify-self: center;
+  flex-flow: column;
+}
+
+hr{
+    width: 100%;
+    opacity: 25%;
+}
+
+#titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#titleContainer h2{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#bracketRowContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px;
+  height: 60vh;
+}
+
+.bracketRows {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  position: relative;
+  justify-content: space-around;
+}
+
+.bracketRows p{
+  color: rgb(188, 188, 188);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.bracketRows h3{
+margin: 0;
+}
+
+.bracketMatch {
+  background-color: var(--card-clr);
+  border-radius: 14px;
+  padding: 14px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.participant {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 8px;
+  font-family: "Figtree", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 6px;
+}
+
+#buttonNav{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px;
+}
+
+.participantLost{
+  color: red;
+  filter: brightness(35%)
+}
