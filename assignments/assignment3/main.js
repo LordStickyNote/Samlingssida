@@ -1,8 +1,14 @@
 import { bracketMatch } from "./match.js";
 
-const response = await fetch("data.json");
-let data = await response.json();
-console.log(data);
+async function getData(params) {
+  const response = await fetch("data.json");
+  let data = await response.json();
+  console.log(data);
+  return(data)
+}
+
+let data = await getData();
+
 
 let currentParticipators = [];
 
@@ -12,10 +18,23 @@ nextMatchBtn.addEventListener("click", () => compete(currentParticipators));
 
 let resetBtn = document.getElementById("reset");
 
+resetBtn.addEventListener("click", () => reset());
+
 let row = document.querySelectorAll(".bracketRows");
 let currentRow = 0;
 
 matchmake();
+
+async function reset() {
+  currentRow = 0;
+  let matchesRow = document.querySelectorAll(".bracketRows");
+  for (let i = 0; i < matchesRow.length; i++) {
+    matchesRow[i].innerHTML = "";
+  }
+  data = await getData();
+  matchmake();
+  nextMatchBtn.disabled = false;
+}
 
 function matchmake() {
   currentParticipators = [];
@@ -28,6 +47,9 @@ function matchmake() {
       phrase1 = "??";
     }
     let skill1 = data[i].skillLevel;
+    if (skill1 == false) {
+      skill1 = "??";
+    }
     matchArray.push(data[i]);
     i++;
     let name2 = data[i].name;
@@ -35,7 +57,10 @@ function matchmake() {
     if (phrase2 == null) {
       phrase2 = "??";
     }
-    const skill2 = data[i].skillLevel;
+    let skill2 = data[i].skillLevel;
+        if (skill2 == false) {
+      skill2 = "??";
+    }
     matchArray.push(data[i]);
 
     currentParticipators.push(matchArray);
@@ -58,11 +83,12 @@ function compete(currentParticipators) {
   console.log("button work", currentParticipators);
   let newData = [];
   for (let i = 0; i < currentParticipators.length; i++) {
-    const chance =
-      currentParticipators[i][0].skillLevel /
-      (currentParticipators[i][0].skillLevel +
-        currentParticipators[i][1].skillLevel);
+    let skill1 = currentParticipators[i][0].skillLevel || 4;
+    let skill2 = currentParticipators[i][1].skillLevel || 4;
+    const chance = skill1 / (skill1 + skill2);
 
+    console.log("skill 1: ", skill1);
+    console.log("skill 2: ", skill2);
     console.log("chance: ", chance);
 
     if (chance > Math.random()) {
@@ -80,7 +106,11 @@ function compete(currentParticipators) {
         "2nd won",
       );
     }
-
+    console.log(
+      currentParticipators[i].length,
+      currentParticipators[i],
+      currentParticipators,
+    );
     for (let j = 0; j < currentParticipators[i].length; j++) {
       if (!currentParticipators[i][j].winner) {
         let matches = row[currentRow].querySelectorAll(".bracketMatch");
@@ -95,11 +125,15 @@ function compete(currentParticipators) {
         participants[j].classList.add("participantLost");
         console.log(participants[j], "participant that lost gotten by class");
       } else {
+        currentParticipators[i][j].winner = false;
         newData.push(currentParticipators[i][j]);
       }
     }
     data = newData;
   }
   currentRow++;
+  if (currentRow === 3) {
+    nextMatchBtn.disabled=true;
+    }
   matchmake();
 }

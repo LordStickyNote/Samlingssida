@@ -77,8 +77,18 @@ header h1 {
   transition: 0.3s;
 }
 
+.btn:disabled {
+  background-color: gray;
+  cursor: default;
+}
+
 .btn:hover {
   background-color: var(--primary-btn-fade);
+  transition: 0.3s;
+}
+
+.btn:hover:disabled {
+  background-color: gray;
   transition: 0.3s;
 }
 

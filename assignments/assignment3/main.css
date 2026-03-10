@@ -1,5 +1,5 @@
 main {
-  height: 100vh;
+  height: fit-content;
   width: fit-content;
   display: flex;
   justify-self: center;
@@ -24,12 +24,12 @@ hr{
 }
 
 #bracketRowContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
-  justify-content: center;
   align-items: flex-start;
   margin-top: 40px;
-  height: 60vh;
+  min-width: 800px;
 }
 
 .bracketRows {
@@ -39,6 +39,7 @@ hr{
   height: 100%;
   position: relative;
   justify-content: space-around;
+  align-items: center;
 }
 
 .bracketRows p{
