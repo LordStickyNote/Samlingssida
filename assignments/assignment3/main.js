@@ -1,4 +1,6 @@
 import { bracketMatch } from "./match.js";
+import { navTabs } from "../../JavaScript/assignments.js";
+navTabs(document.querySelector("nav"), 2);
 
 async function getData(params) {
   const response = await fetch("data.json");

@@ -13,6 +13,13 @@ let assignments = [
     description:
       "Uppgiften gick ut på att bygga en dynamisk produktsida där produkter renderas med JavaScript från en egen datastruktur och kan läggas i en kundvagn. Kundvagnen skulle hantera antal, totalsumma och sparas i localStorage så att innehållet finns kvar även efter omladdning av sidan.",
   },
+  {
+    id: "assignment3",
+    title: "Uppgift 3",
+    link: "/Samlingssida/assignments/assignment3/index.html",
+    description:
+      "Uppgiften gick ut på att bygga en Turneringsgenerator, som skulle ta fram en vinnare av 8 spelare",
+  },
 ];
 
 export function assignmentPage(element, container) {
