@@ -1,37 +1,51 @@
 export class bracketMatch {
+  #player1;
+  #phrase1;
+  #skill1;
+
+  #player2;
+  #phrase2;
+  #skill2;
+
+  #winner = null;
+  #element = null;
+
   constructor(player1, phrase1, skill1, player2, phrase2, skill2) {
-    this.player1 = player1;
-    this.phrase1 = phrase1;
-    this.skill1 = skill1;
-    this.player2 = player2;
-    this.phrase2 = phrase2;
-    this.skill2 = skill2;
+    this.#player1 = player1;
+    this.#phrase1 = phrase1;
+    this.#skill1 = skill1;
+
+    this.#player2 = player2;
+    this.#phrase2 = phrase2;
+    this.#skill2 = skill2;
   }
 
-  //radera ovanför
+  get player1() {
+    return this.#player1;
+  }
+  get phrase1() {
+    return this.#phrase1;
+  }
+  get skill1() {
+    return this.#skill1;
+  }
 
-  // export class BracketMatch {
+  get player2() {
+    return this.#player2;
+  }
+  get phrase2() {
+    return this.#phrase2;
+  }
+  get skill2() {
+    return this.#skill2;
+  }
 
-  // #player1;
-  // #phrase1;
-  // #skill1;
-
-  // #player2;
-  // #phrase2;
-  // #skill2;
-
-  // #winner = null;
-  // #element = null;
-
-  // constructor(player1, phrase1, skill1, player2, phrase2, skill2) {
-  //   this.#player1 = player1;
-  //   this.#phrase1 = phrase1;
-  //   this.#skill1 = skill1;
-
-  //   this.#player2 = player2;
-  //   this.#phrase2 = phrase2;
-  //   this.#skill2 = skill2;
-  // }
+  get winner() {
+    return this.#winner;
+  }
+  get element() {
+    return this.#element;
+  }
 
   render() {
     const match = document.createElement("div");
