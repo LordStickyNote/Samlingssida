@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(17, 17, 17);
+}
+
+#listings {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 2000px;
+}
+
+#houseContent {
+  display: flex;
+  justify-content: center;
+  max-width: 2000px;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  gap: 100px;
+  align-items: center;
+}
+
+#filter {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  height: fit-content;
+  padding: 26px;
+  top: 0;
+  width: 100%;
+  align-items: center;
+}
+
+#filter h1 {
+  width: fit-content;
+}
+
+#filterForm {
+  display: flex;
+  flex-flow: row;
+  width: fit-content;
+  gap: 80px;
+}
+
+#scareLevelRangeLabel {
+  width: 300px;
+}
+
+.formItemContainer {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  height: fit-content;
+}
+
+header {
+  justify-content: center;
+  display: flex;
+}
+
+header h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+#noResults {
+  color: white;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.name-location svg {
+  width: unset;
+  height: 18px;
+  fill: white;
+}
+
+.name-location {
+  flex-flow: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.locationContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.priceContainer {
+  display: flex;
+  flex-flow: column;
+  gap: 6px;
+}
+
+.priceContainer p {
+  font-size: 14px;
+  color: rgb(196, 196, 196);
+  margin: 0;
+}
+.priceContainer h3 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.cardInfo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.detailInfo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+hr {
+  width: 100%;
+  opacity: 15%;
+}
+
+.scareLevel {
+  background-color: black;
+  padding: 6px;
+  border-radius: 4px;
+  margin: 0;
+  border: 1px rgba(211, 211, 211, 0.177) solid;
+  font-weight: bold;
+}
+
+.price-scareLevel {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.tags p {
+  background: rgba(6, 227, 231, 0.278);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  width: fit-content;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #ff5252;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1rem;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+#weatherContainer{
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  gap: 50px;
+  padding: 10px;
+}
+
+.btn:hover {
+  background: #ff2e2e;
+  transform: translateY(-2px);
+}
+
+/* scare level classes*/
+
+.sl1 {
+  background-color: #2ecc71;
+}
+
+.sl2 {
+  background-color: #1abc9c;
+}
+
+.sl3 {
+  background-color: #3498db;
+}
+
+.sl4 {
+  background-color: #e67e22;
+}
+
+.sl5 {
+  background-color: #e74c3c;
+}
+
+/*---details page---*/
+.detailedContainer {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  height: fit-content;
+}
+
+.detailedContainer img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.detailedContainer svg {
+  width: unset;
+  height: 18px;
+  fill: white;
+}
+.detailedContainer .btn {
+  width: fit-content;
+  align-self: flex-start;
+}
+.detailedContainer .desc {
+  max-width: 500px;
+}
+
+#bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+}
+
+#bookingForm input,
+#bookingForm select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 80%;
+  align-items: left;
+}
+
+#bookingForm [type="checkbox"]{
+  width: fit-content;
+}

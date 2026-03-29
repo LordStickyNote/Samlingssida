@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <script type="module" src="./scripts/main.js"></script>
+    <title>Spökhusbyrån AB</title>
+  </head>
+  <body>
+    <header>
+      <h1>Spökhusbyrån AB</h1>
+    </header>
+    <main>
+      <div id="filterContainer">
+        <div id="filter">
+          <h1>Sökfilter</h1>
+          <div action="" id="filterForm">
+            <div class="formItemContainer">
+              <label for="maxPrice">Max pris</label>
+              <input type="text" name="maxPrice" id="maxPriceText" />
+            </div>
+            <div class="formItemContainer">
+              <label for="scareLevel" id="scareLevelRangeLabel"
+                >Skräcknivå</label
+              >
+              <input
+                type="range"
+                name="scareLevel"
+                id="scareLevelRange"
+                min="1"
+                max="5"
+                value="1"
+              />
+            </div>
+            <div class="formItemContainer">
+              <label for="scareLevel">Spöktyp</label>
+              <select name="ghostType" id="ghostTypeSelector">
+                <option value="alla">alla</option>
+                <option value="poltergeist">poltergeist</option>
+                <option value="skuggvarelse">skuggvarelse</option>
+                <option value="kedjerassel">kedjerassel</option>
+                <option value="vit dam">vit dam</option>
+                <option value="sjöspöke">sjöspöke</option>
+                <option value="dimvandare">dimvandare</option>
+                <option value="tvillingspöken">tvillingspöken</option>
+                <option value="industrispöke">industrispöke</option>
+                <option value="vittra">vittra</option>
+                <option value="vampyr">vampyr</option>
+                <option value="kosmisk entitet">kosmisk entitet</option>
+                <option value="det onämnbara">det onämnbara</option>
+                <option value="odöd katt">odöd katt</option>
+                <option value="sjöspöke">sjöspöke</option>
+              </select>
+            </div>
+            <div class="formItemContainer">
+              <label for="scareLevel">Måste ha WiFi</label>
+              <input type="checkbox" name="hasWifi" id="hasWifiCheckbox" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div id="listings"></div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
