@@ -60,6 +60,9 @@ export default async function createDetailPage() {
       for (const element of form) {
         element.value = "";
       }
+
+      document.querySelector("#bookBtn").value="Boka";
+      
     }
   });
 
