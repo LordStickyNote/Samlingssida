@@ -20,6 +20,13 @@ let assignments = [
     description:
       "Uppgiften gick ut på att bygga en Turneringsgenerator, som skulle ta fram en vinnare av 8 spelare",
   },
+  {
+    id: "assignment4",
+    title: "Uppgift 4",
+    link: "/Samlingssida/assignments/assignment4/index.html",
+    description:
+      "Uppgiften gick ut på att göra en hemsida för ett uthyrningsbolag som hyr ut spökhus",
+  },
 ];
 
 export function assignmentPage(element, container) {
