@@ -1,87 +1,66 @@
-export class bracketMatch {
+export default class BracketMatch {
   #player1;
-  #phrase1;
-  #skill1;
-
   #player2;
-  #phrase2;
-  #skill2;
 
   #winner = null;
-  #element = null;
 
-  constructor(player1, phrase1, skill1, player2, phrase2, skill2) {
+  constructor(player1, player2) {
     this.#player1 = player1;
-    this.#phrase1 = phrase1;
-    this.#skill1 = skill1;
-
     this.#player2 = player2;
-    this.#phrase2 = phrase2;
-    this.#skill2 = skill2;
   }
 
   get player1() {
     return this.#player1;
   }
-  get phrase1() {
-    return this.#phrase1;
-  }
-  get skill1() {
-    return this.#skill1;
-  }
 
   get player2() {
     return this.#player2;
   }
-  get phrase2() {
-    return this.#phrase2;
-  }
-  get skill2() {
-    return this.#skill2;
+
+  get isPlayed() {
+    return this.#winner !== null;
   }
 
   get winner() {
     return this.#winner;
   }
-  get element() {
-    return this.#element;
+
+  run() {
+    let skill1 = this.#player1.skillLevel || 4;
+    let skill2 = this.#player2.skillLevel || 4;
+    const chance = skill1 / (skill1 + skill2);
+
+    if (chance > Math.random()) {
+      this.#winner = 0;
+    } else {
+      this.#winner = 1;
+    }
   }
 
   render() {
-    const match = document.createElement("div");
-    match.className = "bracketMatch";
+    let player1Classes = "";
+    let player2Classes = "";
 
-    const participant1 = document.createElement("div");
-    const participant1Name = document.createElement("h3");
-    const participant1Phrase = document.createElement("p");
-    const participant1Skill = document.createElement("p");
-    participant1.className = "participant";
-    participant1Name.textContent = this.player1;
-    participant1Phrase.textContent = this.phrase1;
-    participant1Skill.textContent = "Skill: " + this.skill1;
+    if (this.#winner === 0) {
+      player2Classes = "participantLost";
+    }
 
-    const vs = document.createElement("b");
-    vs.textContent = "VS";
+    if (this.#winner === 1) {
+      player1Classes = "participantLost";
+    }
 
-    const participant2 = document.createElement("div");
-    const participant2Name = document.createElement("h3");
-    const participant2Phrase = document.createElement("p");
-    const participant2Skill = document.createElement("p");
-    participant2.className = "participant";
-    participant2Name.textContent = this.player2;
-    participant2Phrase.textContent = this.phrase2;
-    participant2Skill.textContent = "Skill: " + this.skill2;
-
-    match.appendChild(participant1);
-    participant1.appendChild(participant1Name);
-    participant1.appendChild(participant1Skill);
-    participant1.appendChild(participant1Phrase);
-    match.appendChild(vs);
-    match.appendChild(participant2);
-    participant2.appendChild(participant2Name);
-    participant2.appendChild(participant2Skill);
-    participant2.appendChild(participant2Phrase);
-
-    return match;
+    return `<div class="bracketMatch">
+      <div class="participant ${player1Classes}">
+        <h3>${this.player1.name}</h3>
+        <p>${this.player1.catchphrase || "??"}</p>
+        <p>Skill: ${this.player1.skillLevel || "??"}</p>
+      </div>
+      <b>VS</b>
+      <div class="participant ${player2Classes}">
+        <h3>${this.player2.name}</h3>
+        <p>${this.player2.catchphrase || "??"}</p>
+        <p>Skill: ${this.player2.skillLevel || "??"}</p>
+      </div>
+    </div>`;
   }
 }
